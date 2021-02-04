@@ -57,7 +57,8 @@ for(let i=lettersExpanded.indexOf('b'); i<lettersExpanded.length; i+=2)
 //Alternatively
 for(let key in lettersExpanded)
     key%2!==0?console.log(lettersExpanded[key]):"";    
-
+//Alternatively
+lettersExpanded.map((letter, index) => index%2!==0?console.log(letter):"");
 
 // --------------------------------------
 // Exercise 8 - For loop and if statement
@@ -68,6 +69,10 @@ const discardedNumbers = [];
 for(let number of numbers)
     number>6||number<0?console.log(number):discardedNumbers.push(number);
 console.log(discardedNumbers);
+//Alternatively
+const discardedNumbers2 = [];
+numbers.map(number=>number>6||number<0?console.log(number):discardedNumbers2.push(number))
+console.log(discardedNumbers2);
 // --------------------------------------
 
 
