@@ -54,6 +54,9 @@ const lettersExpanded = ["a","b","c", "d", "e", "f", "g", "h"];
 // log every second char in the array starting from b
 for(let i=lettersExpanded.indexOf('b'); i<lettersExpanded.length; i+=2)
     console.log(lettersExpanded[i]);
+//Alternatively
+for(let key in lettersExpanded)
+    key%2!==0?console.log(lettersExpanded[key]):"";    
 
 
 // --------------------------------------
