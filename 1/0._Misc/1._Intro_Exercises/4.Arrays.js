@@ -52,10 +52,10 @@ console.log(dinnerTray);
 // Exercise 7 - For loop
 const lettersExpanded = ["a","b","c", "d", "e", "f", "g", "h"];
 // log every second char in the array starting from b
-for(let i=lettersExpanded.indexOf('b'); i<lettersExpanded.length; i+=2)
+for (let i=lettersExpanded.indexOf('b'); i<lettersExpanded.length; i+=2)
     console.log(lettersExpanded[i]);
 //Alternatively
-for(let key in lettersExpanded)
+for (let key in lettersExpanded)
     key%2!==0?console.log(lettersExpanded[key]):"";    
 //Alternatively
 lettersExpanded.map((letter, index) => index%2!==0?console.log(letter):"");
@@ -66,12 +66,12 @@ const numbers  = [5, 3, 2, 7, 11, 12, 0, -20, 6];
 const discardedNumbers = [];
 // log the element if the number is above 6 or below 0
 // else push them to the array discardedNumbers
-for(let number of numbers)
-    number>6||number<0?console.log(number):discardedNumbers.push(number);
+for (let number of numbers)
+    number>6 || number<0 ? console.log(number) : discardedNumbers.push(number);
 console.log(discardedNumbers);
 //Alternatively
 const discardedNumbers2 = [];
-numbers.map(number=>number>6||number<0?console.log(number):discardedNumbers2.push(number))
+numbers.map(number=>number>6 || number<0 ? console.log(number) : discardedNumbers2.push(number));
 console.log(discardedNumbers2);
 // --------------------------------------
 
