@@ -11,21 +11,13 @@ const data = {
 // data.courses.forEach(course => console.log("Course: " + course.name + " with " + course.teacher));
 
 //GET method to get all courses
-app.get("/courses", (req, res)=>{
+app.get('/courses', (req, res)=>{
     res.send(data);
 });
 
-//GET methods to get courses by id
-app.get(`/courses/${data.courses[0].id}`, (req, res)=>{
-    res.send({"course": `${data.courses[0].name} with ${data.courses[0].teacher}`})
-});
-
-app.get(`/courses/${data.courses[1].id}`, (req, res)=>{
-    res.send({"course": `${data.courses[1].name} with ${data.courses[1].teacher}`})
-});
-
-app.get(`/courses/${data.courses[2].id}`, (req, res)=>{
-    res.send({"course": `${data.courses[2].name} with ${data.courses[2].teacher}`})
+//GET method to get courses by id
+app.get('/courses/:id', (req, res)=>{
+    res.send({"course": `${data.courses[parseInt(req.path.slice(-1))-1].name} with ${data.courses[parseInt(req.path.slice(-1))-1].teacher}`})
 });
 
 app.listen(8080);
