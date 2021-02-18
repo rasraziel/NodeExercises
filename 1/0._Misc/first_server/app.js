@@ -10,6 +10,14 @@ const data = {
 
 // data.courses.forEach(course => console.log("Course: " + course.name + " with " + course.teacher));
 
+// app.get('/welcome', (req, res)=>{
+//     res.send('<h1 style="color:red">Welcome</h1>');
+// });
+
+// app.get('/me', (req, res)=>{
+//     res.send({"name":"Ilias"});
+// });
+
 //GET method to get all courses
 app.get('/courses', (req, res)=>{
     res.send(data);
