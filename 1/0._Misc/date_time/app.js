@@ -42,7 +42,10 @@ app.get('/date', (req, res)=>{
     let day = days[date.getDay()];
     let month = months[date.getMonth()];
     let year = date.getFullYear();
-    let time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    let hours = date.getHours()<10 ? "0" + date.getHours() : date.getHours();
+    let minutes = date.getMinutes()<10 ? "0" + date.getMinutes() : date.getMinutes();
+    let seconds = date.getSeconds()<10 ? "0" + date.getSeconds() : date.getSeconds();
+    let time = hours + ":" + minutes + ":" + seconds;
 
     let htmlPage = `<meta http-equiv="refresh" content="1">
                     <h1><span style="color:crimson">Date:</span> ${month}, ${day} the ${dayOfMonth}${ending}, ${year}</h1>
