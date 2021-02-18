@@ -1,39 +1,20 @@
 const express = require("express");
 const app = express();
 
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
 //GET method to get day
 app.get('/day', (req, res)=>{
     let date = new Date();
-    let day = new Array();
-    day[0] = "Sunday";
-    day[1] = "Monday";
-    day[2] = "Tuesday";
-    day[3] = "Wednesday";
-    day[4] = "Thursday";
-    day[5] = "Friday";
-    day[6] = "Saturday";
-    day = {day: day[date.getDay()]}
+    let day = {day: days[date.getDay()]}
     res.send(day);
-
 });
 
 //GET method to get month
 app.get('/month', (req, res)=>{
     let date = new Date();
-    let month = new Array();
-    month[0] = "January";
-    month[1] = "February";
-    month[2] = "March";
-    month[3] = "April";
-    month[4] = "May";
-    month[5] = "June";
-    month[6] = "July";
-    month[7] = "August";
-    month[8] = "September";
-    month[9] = "October";
-    month[10] = "November";
-    month[11] = "December";
-    month = {month: month[date.getMonth()]}
+    let month = {month: months[date.getMonth()]}
     res.send(month);
 });
 
@@ -43,6 +24,30 @@ app.get('/time', (req, res)=>{
     let time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
     time = {time: time}
     res.send(time);
+});
+
+//GET method to get date
+app.get('/date', (req, res)=>{
+    let date = new Date();
+    let dayOfMonth = date.getDate();
+    let ending = "";
+    if(dayOfMonth%10===1)
+        ending+="st";
+    else if(dayOfMonth%10===2)
+        ending+="nd";
+    else if(dayOfMonth%10===3)
+        ending+="rd";
+    else
+        ending+="th";           
+    let day = days[date.getDay()];
+    let month = months[date.getMonth()];
+    let year = date.getFullYear();
+    let time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+
+    let htmlPage = `<meta http-equiv="refresh" content="1">
+                    <h1><span style="color:crimson">Date:</span> ${month}, ${day} the ${dayOfMonth}${ending}, ${year}</h1>
+                    <h1><span style="color:crimson">Time:</span> ${time}</h1>`;
+    res.send(htmlPage);
 });
 
 app.listen(8080);
