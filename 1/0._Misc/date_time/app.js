@@ -1,8 +1,17 @@
+const { json } = require("express");
 const express = require("express");
+const pjson = require('./package.json');
 const app = express();
 
 const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+
+//GET method to get version
+app.get('/about', (req, res)=>{
+    let version = {version: pjson.version}
+    res.send(version);
+});
 
 //GET method to get day
 app.get('/day', (req, res)=>{
